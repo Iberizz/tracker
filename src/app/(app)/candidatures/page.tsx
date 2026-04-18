@@ -120,9 +120,9 @@ export default function CandidaturesPage() {
                   <p className="job-meta">
                     {c.job.company} ·{" "}
                     {new Date(c.createdAt).toLocaleDateString("fr-FR")}
-                    {c.format && (
+                    {c.style && (
                       <span style={{ marginLeft: 6, opacity: 0.5 }}>
-                        {c.format}
+                        {c.style}
                       </span>
                     )}
                   </p>
