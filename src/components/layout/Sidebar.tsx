@@ -9,10 +9,6 @@ const navItems = [
   { href: "/profil", label: "Profil", color: "#06b6d4" },
 ];
 
-const toolItems = [
-  { href: "/sources", label: "Sources RSS", color: "#4b5563" },
-  { href: "/", label: "Profil", color: "#4b5563" },
-];
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -37,19 +33,6 @@ export default function Sidebar() {
           </Link>
         ))}
 
-        <span className="nav-label" style={{ marginTop: "16px" }}>
-          Outils
-        </span>
-        {toolItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`nav-item ${pathname.startsWith(item.href) ? "active" : ""}`}
-          >
-            <span className="nav-dot" style={{ background: item.color }} />
-            <span className="nav-text">{item.label}</span>
-          </Link>
-        ))}
       </nav>
 
       <div className="sidebar-footer">

@@ -62,38 +62,24 @@ function VariantCard({
         </span>
         <div style={{ display: "flex", gap: 6 }}>
           <button
-            className="btn btn-ghost"
-            onClick={copy}
-            style={{ fontSize: 11 }}
+              className="btn btn-ghost"
+              onClick={onSave}
+              disabled={saved}
+              style={{ fontSize: 11 }}
           >
-            {copied ? "✓ Copié" : "Copier"}
+            {saved ? "✓ Sauvegardé" : "Sauvegarder"}
           </button>
-          {index === 0 && (
-            <>
               <button
-                className="btn btn-ghost"
-                onClick={onSave}
-                disabled={saved}
-                style={{ fontSize: 11 }}
+                  className="btn btn-primary"
+                  onClick={onSend}
+                  style={{ fontSize: 11 }}
+                  disabled={sendState === "sending" || sendState === "ok"}
               >
-                {saved ? "✓ Sauvegardé" : "Sauvegarder"}
+                {sendState === "sending" ? "Envoi..."
+                    : sendState === "ok"   ? "✓ Envoyé"
+                        : sendState === "err"  ? "⚠ Retry"
+                            : "→ Envoyer"}
               </button>
-              <button
-                className="btn btn-primary"
-                onClick={onSend}
-                style={{ fontSize: 11 }}
-                disabled={sendState === "sending" || sendState === "ok"}
-              >
-                {sendState === "sending"
-                  ? "Envoi..."
-                  : sendState === "ok"
-                    ? "✓ Envoyé"
-                    : sendState === "err"
-                      ? "⚠ Retry"
-                      : "→ Envoyer"}
-              </button>
-            </>
-          )}
         </div>
       </div>
       <p
