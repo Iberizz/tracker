@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-    { href: "/offres", label: "Offres", color: "#818cf8" },
-    { href: "/candidatures", label: "Candidatures", color: "#22c55e" },
-    { href: "/profil", label: "Profil", color: "#06b6d4" },
-]
+  { href: "/offres", label: "Offres", color: "#818cf8" },
+  { href: "/candidatures", label: "Candidatures", color: "#22c55e" },
+  { href: "/profil", label: "Profil", color: "#06b6d4" },
+];
 
 const toolItems = [
   { href: "/sources", label: "Sources RSS", color: "#4b5563" },
-  { href: "/profil", label: "Profil", color: "#4b5563" },
-]
+  { href: "/", label: "Profil", color: "#4b5563" },
+];
 
 export default function Sidebar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <aside className="sidebar">
@@ -37,7 +37,9 @@ export default function Sidebar() {
           </Link>
         ))}
 
-        <span className="nav-label" style={{ marginTop: "16px" }}>Outils</span>
+        <span className="nav-label" style={{ marginTop: "16px" }}>
+          Outils
+        </span>
         {toolItems.map((item) => (
           <Link
             key={item.href}
@@ -60,5 +62,5 @@ export default function Sidebar() {
         </div>
       </div>
     </aside>
-  )
+  );
 }
